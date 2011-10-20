@@ -107,7 +107,7 @@ class TestDetailsAgainstXML:
 
         Assert.equal(browser_description.replace('\n', ''), xml_description.replace('\n', ''))
 
-    @xfail(reason="needs to be updated for impala")
+    @xfail(reason="Disabled until bug 694001 is fixed.")
     def test_that_icon_is_correct(self, mozwebqa):
         """litmus 15322"""
 
