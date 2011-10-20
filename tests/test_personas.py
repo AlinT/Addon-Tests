@@ -39,12 +39,14 @@
 
 import random
 import pytest
+import re
 
 from unittestzero import Assert
 from pages.home import Home
 from pages.personas import Personas
 
 xfail = pytest.mark.xfail
+
 
 class TestPersonas:
 
@@ -151,3 +153,17 @@ class TestPersonas:
         Assert.equal("Add-ons for Firefox", rainbow_personas_detail_page.get_breadcrumb_item_text(1))
         Assert.equal("Personas", rainbow_personas_detail_page.get_breadcrumb_item_text(2))
         Assert.equal("rainbow firefox", rainbow_personas_detail_page.get_breadcrumb_item_text(3))
+
+    def test_personas_heading_automatic_scrolling_of_personas(self, mozwebqa):
+        """
+        Test that heading is correct,automatic scrolling of personas works and that there are two buttons(Upwards & Downwards)
+        https://litmus.mozilla.org/show_test.cgi?id=12034
+        """
+        home_page = Home(mozwebqa)
+        personas_page = home_page.click_personas()
+
+        Assert.not_none(re.search('\d', personas_page.get_personas_text_intro))
+        Assert.true(personas_page.is_arrow_prev_button_visible)
+        Assert.true(personas_page.is_arrow_next_button_visible)
+        Assert.true(personas_page.is_personas_slider_visible)
+        #TODO: find a way to test the automated scrolling

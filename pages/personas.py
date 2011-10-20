@@ -61,6 +61,11 @@ class Personas(Base):
 
     _persona_header_locator = "css=.featured-inner>h2"
 
+    _personas_text_locator = "css=p.intro"
+    _arrow_prev_locator = "css=.arrow.prev"
+    _arrow_next_locator = "css=.arrow.next"
+    _personas_slider_locator = "css=.personas-slider"
+
     def __init__(self, testsetup):
         Base.__init__(self, testsetup)
 
@@ -134,6 +139,21 @@ class Personas(Base):
     def persona_header(self):
         return self.selenium.get_text(self._persona_header_locator)
 
+    @property
+    def get_personas_text_intro(self):
+        return self.selenium.get_text(self._personas_text_locator)
+
+    @property
+    def is_arrow_next_button_visible(self):
+        return self.selenium.is_visible(self._arrow_next_locator)
+
+    @property
+    def is_arrow_prev_button_visible(self):
+        return self.selenium.is_visible(self._arrow_prev_locator)
+
+    @property
+    def is_personas_slider_visible(self):
+        return self.selenium.is_visible(self._personas_slider_locator)
 
 class PersonasDetail(Base):
 
