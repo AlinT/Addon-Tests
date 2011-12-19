@@ -177,7 +177,7 @@ class Base(Page):
 
         def is_other_application_visible(self, other_app):
             hover_locator = self.selenium.find_element(*self._other_applications_locator)
-            app_locator = (By.CSS_SELECTOR, "#app-%s" % other_app.lower())
+            app_locator = (By.CSS_SELECTOR, "#app-%s > a" % other_app.lower())
             ActionChains(self.selenium).move_to_element(hover_locator).perform()
             return self.is_element_visible(*app_locator)
 
