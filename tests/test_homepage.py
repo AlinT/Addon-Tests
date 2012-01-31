@@ -94,7 +94,7 @@ class TestHome:
         """
         home_page = Home(mozwebqa)
         Assert.equal(home_page.featured_personas_title, u'Featured Personas See all \xbb', 'Featured Personas region title doesn\'t match')
-        Assert.equal(home_page.featured_personas_count, 6)
+        Assert.equal(home_page.featured_personas_count, 5)
 
     @nondestructive
     def test_that_clicking_see_all_personas_link_works(self, mozwebqa):
