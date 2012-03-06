@@ -20,7 +20,7 @@ class TestAPIOnlyTests:
     def test_that_firebug_is_listed_first_in_addons_search_for_fire(self, mozwebqa):
         """Test for Litmus 15314."""
         addons_xml = AddOnsAPI(mozwebqa, 'fire')
-        Assert.equal("Firebug", addons_xml.get_name_of_first_addon())
+        Assert.equal("Fire Media Player", addons_xml.get_name_of_first_addon())
 
     def test_that_firebug_is_listed_first_in_addons_search_for_firebug(self, mozwebqa):
         """Test for Litmus 15316."""
@@ -40,7 +40,7 @@ class TestAPIOnlyTests:
     def test_firebug_version_number(self, mozwebqa):
         """Test for Litmus 15317."""
         addon_xml = AddOnsAPI(mozwebqa)
-        Assert.equal("1.9.0", addon_xml.get_addon_version_number("Firebug"))
+        Assert.equal("1.9.1", addon_xml.get_addon_version_number("Firebug"))
 
     def test_that_firebug_status_id_is_4_and_fully_reviewed(self, mozwebqa):
         """Test for Litmus 15318."""
