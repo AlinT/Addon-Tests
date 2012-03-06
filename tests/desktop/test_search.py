@@ -132,7 +132,7 @@ class TestSearch:
         home_page = Home(mozwebqa)
         search_page = home_page.header.search_for('fire')
 
-        Assert.equal(search_page.result(0).name, 'Firebug')
+        Assert.equal(search_page.result(0).name, 'Fire Media Player')
 
     @nondestructive
     def test_that_searching_for_cool_returns_results_with_cool_in_their_name_description(self, mozwebqa):
