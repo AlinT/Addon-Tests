@@ -282,6 +282,7 @@ class TestSearch:
     @pytest.mark.native
     @pytest.mark.smoke
     @pytest.mark.nondestructive
+    @pytest.mark.xfail(reason="bug 767951")
     def test_searching_for_collections_returns_results(self, mozwebqa):
         """
         Test for Litmus 17352.
