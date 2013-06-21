@@ -14,6 +14,7 @@ from pages.desktop.discovery import DiscoveryPane
 from pages.desktop.home import Home
 
 
+@pytest.mark.xfail(reason='Bug 885606 - [traceback] 500 Internal Server Error on disco pane URLs')
 class TestDiscoveryPane:
 
     #Need to get this info before run
@@ -104,6 +105,7 @@ class TestDiscoveryPane:
         https://litmus.mozilla.org/show_test.cgi?id=15071
         """
         discovery_pane = DiscoveryPane(mozwebqa, self.basepath(mozwebqa))
+        Assert.true(discovery_pane.is_the_current_page)
         slider2 = ''
 
         #checking > button works and slides change
